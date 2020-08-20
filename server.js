@@ -1,5 +1,5 @@
 require("dotenv").config();
-var sslRedirect = require("heroku-ssl-redirect");
+// var sslRedirect = require("heroku-ssl-redirect");
 // Get twillio auth and SID from heroku if deployed, else get from local .env file
 var twillioAuthToken =
   process.env.HEROKU_AUTH_TOKEN || process.env.LOCAL_AUTH_TOKEN;
@@ -15,7 +15,7 @@ var public = path.join(__dirname, "public");
 const url = require("url");
 
 // enable ssl redirect
-app.use(sslRedirect());
+// app.use(sslRedirect());
 
 // Remove trailing slashes in url
 app.use(function (req, res, next) {
@@ -28,7 +28,7 @@ app.use(function (req, res, next) {
 });
 
 app.get("/", function (req, res) {
-  res.sendFile(path.join(public, "landing.html"));
+  res.sendFile(path.join(public, "newcall.html"));
 });
 
 app.get("/newcall", function (req, res) {
